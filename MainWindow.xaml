@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfExamples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfExamples"
+        mc:Ignorable="d"
+        Title="Horario's Main Window" FontSize="10" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <ListBox Background="#FF4EB0E4" Grid.Column="1" Grid.Row="0" FontSize="20">
+            <ListBoxItem Content="Content 1"></ListBoxItem>
+            <ListBoxItem Content="Content 2"></ListBoxItem>
+        </ListBox>
+        <Button Content="Click Me" Background="Bisque" Grid.Column="1" Grid.Row="1" Height="30" Width="150" Margin="0,20,0,0"/>
+    </Grid>
+</Window>
