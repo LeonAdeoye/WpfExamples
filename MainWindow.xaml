@@ -13,15 +13,17 @@
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ListBox Background="#FF74906E" Grid.Column="1" Grid.Row="0" FontSize="20">
-            <ListBoxItem Content="Content 1"></ListBoxItem>
-            <ListBoxItem Content="Content 2"></ListBoxItem>
+        <ListBox Background="#FF74906E" Grid.Column="1" Grid.Row="0" FontSize="20" BorderThickness="5" BorderBrush="SandyBrown">
+            <ListBoxItem Content="Content 1" HorizontalContentAlignment="center"></ListBoxItem>
+            <ListBoxItem Content="Content 2" HorizontalContentAlignment="center"></ListBoxItem>
         </ListBox>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1">
-            <Button Content="Click Me" Background="Bisque" Height="30" Width="150" Margin="10,10,10,10" Click="Button_Click">
+            <Button Content="Click Me" Background="Bisque" VerticalAlignment="Top"
+                    Height="30" Width="150" Margin="10,10,10,10" Click="Button_Click" >
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Style.Triggers>
@@ -32,7 +34,8 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button Name="secondButton" Content="Click Me Again" Background="Bisque" Height="30" Width="150" Margin="0,10,10,10">
+            <Button Name="secondButton" Content="Click Me Again" Background="Bisque" VerticalAlignment="top"
+                    Height="30" Width="150" Margin="0,10,10,10">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Style.Triggers>
@@ -44,5 +47,11 @@
                 </Button.Style>
             </Button>
         </StackPanel>
+        <DockPanel Grid.Row="2" Grid.Column="1">
+            <Button DockPanel.Dock="Top" Background="Red">Top</Button>
+            <Button DockPanel.Dock="Left" Background="Orange">Left</Button>
+            <Button DockPanel.Dock="Right" Background="Lime">Right</Button>
+            <Button DockPanel.Dock="Bottom" Background="Aqua">Bottom</Button>
+        </DockPanel>
     </Grid>
 </Window>
