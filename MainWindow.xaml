@@ -16,10 +16,33 @@
             <RowDefinition Height="200"/>
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
-        <ListBox Background="#FF4EB0E4" Grid.Column="1" Grid.Row="0" FontSize="20">
+        <ListBox Background="#FF74906E" Grid.Column="1" Grid.Row="0" FontSize="20">
             <ListBoxItem Content="Content 1"></ListBoxItem>
             <ListBoxItem Content="Content 2"></ListBoxItem>
         </ListBox>
-        <Button Content="Click Me" Background="Bisque" Grid.Column="1" Grid.Row="1" Height="30" Width="150" Margin="0,20,0,0"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1">
+            <Button Content="Click Me" Background="Bisque" Height="30" Width="150" Margin="10,10,10,10" Click="Button_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#FF7171D8"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Name="secondButton" Content="Click Me Again" Background="Bisque" Height="30" Width="150" Margin="0,10,10,10">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#FF7171D8"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
