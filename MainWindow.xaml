@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:WpfExamples"
         mc:Ignorable="d"
         Title="Horario's Main Window" FontSize="10" Height="450" Width="800">
-    <Grid>
+    <Window.CommandBindings>
+        <CommandBinding Command="Copy" CanExecute="HelpCanExecute" Executed="HelpExecuted"></CommandBinding>
+    </Window.CommandBindings>
+    <Grid KeyDown="KeyDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="*"/>
