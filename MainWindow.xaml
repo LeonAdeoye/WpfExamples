@@ -20,10 +20,12 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ListBox Background="#FF74906E" Grid.Column="1" Grid.Row="0" FontSize="20" BorderThickness="5" BorderBrush="SandyBrown">
-            <ListBoxItem Content="Content 1" HorizontalContentAlignment="center"></ListBoxItem>
-            <ListBoxItem Content="Content 2" HorizontalContentAlignment="center"></ListBoxItem>
-        </ListBox>
+        <Expander Header="ListBox Expander" Grid.Column="1" Grid.Row="0">
+            <ListBox Background="#FF74906E" FontSize="20" BorderThickness="5" BorderBrush="SandyBrown">
+                <ListBoxItem Content="Content 1" HorizontalContentAlignment="center" Selected="ListBoxItem_Selected"></ListBoxItem>
+                <ListBoxItem Content="Content 2" HorizontalContentAlignment="center"></ListBoxItem>
+            </ListBox>
+        </Expander>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1">
             <Button Content="Click Me" Background="Bisque" VerticalAlignment="Top"
                     Height="30" Width="150" Margin="10,10,10,10" Click="Button_Click" >
@@ -36,6 +38,9 @@
                         </Style.Triggers>
                     </Style>
                 </Button.Style>
+                <Button.ToolTip>
+                    <ToolTip>Click here to have fun!!!</ToolTip>
+                </Button.ToolTip>
             </Button>
             <Button Name="secondButton" Content="Click Me Again" Background="Bisque" VerticalAlignment="top"
                     Height="30" Width="150" Margin="0,10,10,10">
@@ -49,12 +54,56 @@
                     </Style>
                 </Button.Style>
             </Button>
+            <StackPanel>
+                <CheckBox IsChecked="True" Margin="10 10 10 0" ToolTipService.InitialShowDelay="50" ToolTipService.ShowDuration="3000" >Checked
+                    <CheckBox.ToolTip>
+                        Check one of these check boxes if you want to have fun!
+                    </CheckBox.ToolTip>
+                </CheckBox>
+                <CheckBox IsChecked="False" Margin="10 10 10 0">UnChecked</CheckBox>
+            </StackPanel>
+            <GroupBox Header="Group box" Width="150" Height="100">
+                <StackPanel>
+                    <RadioButton GroupName="group1" IsChecked="True">Radio one</RadioButton>
+                    <RadioButton GroupName="group1">Radio two</RadioButton>
+                    <RadioButton GroupName="group2" IsChecked="True">Radio three</RadioButton>
+                    <RadioButton GroupName="group2">Radio four</RadioButton>
+                </StackPanel>
+            </GroupBox>
+            <ComboBox Width="80" Height="30"  IsEditable="False" SelectedItem="1">
+                <ComboBoxItem>One</ComboBoxItem>
+                <ComboBoxItem>Two</ComboBoxItem>
+            </ComboBox>
         </StackPanel>
         <DockPanel Grid.Row="2" Grid.Column="1">
-            <Button DockPanel.Dock="Top" Background="Red">Top</Button>
+            <TabControl DockPanel.Dock="Top" Background="Red" Height="80">
+                <TabItem Header="Tab 1">
+                    <TextBlock>Content for tab 1</TextBlock>
+                </TabItem>
+                <TabItem Header="Tab 2">
+                    <TextBlock>Content for tab 2</TextBlock>
+                </TabItem>
+                <TabItem Header="Tab 3">
+                    <TextBlock>Content for tab 3</TextBlock>
+                </TabItem>
+            </TabControl>
             <Button DockPanel.Dock="Left" Background="Orange">Left</Button>
             <Button DockPanel.Dock="Right" Background="Lime">Right</Button>
-            <Button DockPanel.Dock="Bottom" Background="Aqua">Bottom</Button>
+            <ListView DockPanel.Dock="Bottom">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Hello"/>
+                        <MenuItem Header="World"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Date"/>
+                        <GridViewColumn Header="Day of week" DisplayMemberBinding="{Binding DayOfWeek}"/>
+                        <GridViewColumn Header="Year" DisplayMemberBinding="{Binding Year}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </DockPanel>
     </Grid>
 </Window>

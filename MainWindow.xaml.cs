@@ -42,5 +42,10 @@ namespace WpfExamples
             MessageBox.Show("On closed");
             base.OnClosed(e);
         }
+
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Selected Item is:");
+        }
     }
 }
