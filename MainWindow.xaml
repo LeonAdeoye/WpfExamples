@@ -21,9 +21,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Expander Header="ListBox Expander" Grid.Column="1" Grid.Row="0">
-            <ListBox Background="#FF74906E" FontSize="20" BorderThickness="5" BorderBrush="SandyBrown">
-                <ListBoxItem Content="Content 1" HorizontalContentAlignment="center" Selected="ListBoxItem_Selected"></ListBoxItem>
-                <ListBoxItem Content="Content 2" HorizontalContentAlignment="center"></ListBoxItem>
+            <ListBox x:Name="ListBox_Selected" Background="#FF74906E" FontSize="20" 
+                     BorderThickness="5" BorderBrush="SandyBrown" 
+                     SelectionChanged="ListBox_Selected_SelectionChanged"
+                     ItemsSource="{Binding Items}">
             </ListBox>
         </Expander>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1">
@@ -78,7 +79,7 @@
         <DockPanel Grid.Row="2" Grid.Column="1">
             <TabControl DockPanel.Dock="Top" Background="Red" Height="80">
                 <TabItem Header="Tab 1">
-                    <TextBlock>Content for tab 1</TextBlock>
+                    <TextBlock x:Name="currentTab" Text="{Binding ConverterParameter=One, Converter={StaticResource myConverter}, StringFormat={}Converted item: {0}, ElementName=ListBox_Selected, Path=SelectedItem}"/>
                 </TabItem>
                 <TabItem Header="Tab 2">
                     <TextBlock>Content for tab 2</TextBlock>
@@ -99,8 +100,8 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Date"/>
-                        <GridViewColumn Header="Day of week" DisplayMemberBinding="{Binding DayOfWeek}"/>
-                        <GridViewColumn Header="Year" DisplayMemberBinding="{Binding Year}"/>
+                        <GridViewColumn Header="Day of week" />
+                        <GridViewColumn Header="Year"/>
                     </GridView>
                 </ListView.View>
             </ListView>

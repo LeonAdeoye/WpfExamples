@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace WpfExamples
@@ -9,10 +11,15 @@ namespace WpfExamples
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<String> Items
+        {
+            get { return new List<String> { "One", "Two", "Three" }; }
+        }
         public MainWindow()
         {
             Application.Current.Properties["MyName"] = "Leon";
-            MessageBox.Show($"Property set to: {Application.Current.Properties["MyName"]}");
+
+            DataContext = this;
 
             InitializeComponent();
         }
@@ -43,9 +50,9 @@ namespace WpfExamples
             base.OnClosed(e);
         }
 
-        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        private void ListBox_Selected_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            MessageBox.Show($"Selected Item is:");
+            MessageBox.Show($"Selected Item is: {ListBox_Selected.SelectedValue.ToString()}");
         }
     }
 }

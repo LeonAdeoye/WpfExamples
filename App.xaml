@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:WpfExamples"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <local:ListValueConverter x:Key="myConverter"/>
     </Application.Resources>
 </Application>
